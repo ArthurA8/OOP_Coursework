@@ -1,11 +1,12 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.File;
 
 public class Main {
 	
-	public static int usrID;
-
+	public static ArrayList<String> usrDetails = new ArrayList<String>();
+	
     public static void main(String[] args) {
 
         Scanner consoleInput = new Scanner(System.in);
@@ -90,7 +91,10 @@ public class Main {
 	    			while (accountReader.hasNextLine()) {
 		    			String[] userDetails = accountReader.nextLine().split("; ");
 		    			if (Integer.parseInt(userDetails[0]) == Integer.parseInt(input) && userDetails[5].trim().equals("admin")) {
-		    				usrID = Integer.parseInt(input);
+		    				
+		    				for (int i=0; i<userDetails.length; i++) {
+		    					usrDetails.add(userDetails[i]);
+		    				}
 		    				accountReader.close();
 		    				return true;
 		    			}
@@ -110,7 +114,10 @@ public class Main {
 	    			while (accountReader.hasNextLine()) {
 	    				String[] userDetails = accountReader.nextLine().split("; ");
 	    				if (Integer.parseInt(userDetails[0]) == Integer.parseInt(input) && userDetails[5].trim().equals("customer")) {
-	    					usrID = Integer.parseInt(input);
+	    					
+	    					for (int i=0; i<userDetails.length; i++) {
+		    					usrDetails.add(userDetails[i]);
+		    				}
 	    					accountReader.close();
 	    					return true;
 	    				}

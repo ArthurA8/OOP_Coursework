@@ -6,19 +6,27 @@ public class AdminCLI {
 
     public static void run(Scanner consoleInput) {
     	System.out.println("ADMIN VIEW");
-        
-
-        
+    	
+    	int id = Integer.parseInt(Main.usrDetails.get(0));
+    	String name = Main.usrDetails.get(1);
+    	int houseNum = Integer.parseInt(Main.usrDetails.get(2));
+    	String pstCode = Main.usrDetails.get(3);
+    	String city = Main.usrDetails.get(4);
+    	
+    	Admin adminInst = new Admin(id, name, houseNum, pstCode, city, Role.ADMIN);
+ 
         while (true) {
         	
-        	Admin adminInstance = new Admin()
         	printAdminMenu();
         	
         	int selection = Integer.parseInt(consoleInput.nextLine().trim());
         	
         	switch (selection) {
         		case 1:
-        			
+        			System.out.println("\n");
+        			System.out.println("PRODUCT LIST");
+        			adminInst.viewProducts();
+        			System.out.println("\n");
         			break;
         		
         		case 2:
@@ -53,5 +61,7 @@ public class AdminCLI {
 
         System.out.println("0) Log out");
     }
+    
+    
        
 }
