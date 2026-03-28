@@ -10,14 +10,15 @@ public class AdminCLI {
 
         
         while (true) {
+        	
+        	Admin adminInstance = new Admin()
         	printAdminMenu();
         	
         	int selection = Integer.parseInt(consoleInput.nextLine().trim());
         	
         	switch (selection) {
         		case 1:
-        			System.out.println(NOT_IMPLEMENTED);
-        			System.out.println();
+        			
         			break;
         		
         		case 2:
