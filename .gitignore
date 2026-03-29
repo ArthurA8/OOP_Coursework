@@ -6,3 +6,7 @@
 /Admin.class
 /Product.class
 /ProductCategory.class
+/BoardGame.class
+/BoardGameType.class
+/AccessoryType.class
+/Accessories.class
