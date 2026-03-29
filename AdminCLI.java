@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AdminCLI {
@@ -30,11 +31,15 @@ public class AdminCLI {
         			break;
         		
         		case 2:
+        			System.out.println("\n");
+        			System.out.println("ADDING PRODUCT\n");
+        			String[] inputParams = {"PRODUCT ID", "PRODUCT CATEGORY", "PRODUCT TYPE", "PRODUCT NAME", "PRODUCT PRICE", "PRODUCT STOCK", "PRODUCT COST", "ADDITIONAL PRODUCT INFO"};
+        			ArrayList<String> inputs = new ArrayList<>();
         			//The order of the input should follow the order appearing in the Stock.txt file
         			//read data one entry at a time.
-        			for (int i=1;i<9;i++) {
-        				System.out.println("input parameter" + i);
-        				consoleInput.nextLine();
+        			for (int i=0;i<8;i++) {
+        				System.out.printf("%s:\n", inputParams[i]);
+        				inputs.add(consoleInput.nextLine());
         				
         			}
         			System.out.println(NOT_IMPLEMENTED);

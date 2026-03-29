@@ -1,8 +1,13 @@
 import java.io.File;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Admin extends User {
+	
+	
 
 	public Admin(int userID, String name, int houseNum, String postcode, String city, Role role) {
 		super(userID, name, houseNum, postcode, city, role);
@@ -22,5 +27,18 @@ public class Admin extends User {
 				
 			}
 		}
+	
+	public void addProduct(Product newProduct) {
+		String details = newProduct.toString();
+		String[] detailArray = newProduct.toString().split("; ");
+		try (BufferedWriter productWriter = new BufferedWriter(new FileWriter("Stock.txt", true))) {
+			productWriter.write(details);
+			System.out.printf("%s has been added to the stock!\n\n", detailArray[0]);
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		}
+	}
+	
+	
 
 }
