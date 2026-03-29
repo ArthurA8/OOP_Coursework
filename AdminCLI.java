@@ -5,7 +5,7 @@ public class AdminCLI {
 	public final static String INVALID = "Invalid input";
 
     public static void run(Scanner consoleInput) {
-    	System.out.println("ADMIN VIEW");
+    	System.out.println("\nADMIN VIEW");
     	
     	int id = Integer.parseInt(Main.usrDetails.get(0));
     	String name = Main.usrDetails.get(1);
@@ -24,7 +24,7 @@ public class AdminCLI {
         	switch (selection) {
         		case 1:
         			System.out.println("\n");
-        			System.out.println("PRODUCT LIST");
+        			System.out.println("PRODUCT LIST\n");
         			adminInst.viewProducts();
         			System.out.println("\n");
         			break;
