@@ -32,8 +32,9 @@ public class Admin extends User {
 		String details = newProduct.toString();
 		String[] detailArray = newProduct.toString().split("; ");
 		try (BufferedWriter productWriter = new BufferedWriter(new FileWriter("Stock.txt", true))) {
+			productWriter.newLine();
 			productWriter.write(details);
-			System.out.printf("%s has been added to the stock!\n\n", detailArray[0]);
+			System.out.printf("%s has been added to the stock!\n\n", detailArray[3]);
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}

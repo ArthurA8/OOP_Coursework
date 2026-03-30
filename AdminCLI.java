@@ -31,7 +31,6 @@ public class AdminCLI {
         			break;
         		
         		case 2:
-        			System.out.println("\n");
         			System.out.println("ADDING PRODUCT\n");
         			String[] inputParams = {"PRODUCT ID", "PRODUCT CATEGORY", "PRODUCT TYPE", "PRODUCT NAME", "PRODUCT PRICE", "PRODUCT STOCK", "PRODUCT COST", "ADDITIONAL PRODUCT INFO"};
         			ArrayList<String> inputs = new ArrayList<>();
@@ -40,9 +39,24 @@ public class AdminCLI {
         			for (int i=0;i<8;i++) {
         				System.out.printf("%s:\n", inputParams[i]);
         				inputs.add(consoleInput.nextLine());
-        				
         			}
-        			System.out.println(NOT_IMPLEMENTED);
+        			
+        			if (ProductCategory.valueOf(inputs.get(1)) == ProductCategory.ACCESSORY) {
+        				
+        				Accessories newProduct = new Accessories(Integer.valueOf(inputs.get(0)), ProductCategory.ACCESSORY, inputs.get(3), Double.valueOf(inputs.get(6)), Integer.valueOf(inputs.get(5)), Double.valueOf(inputs.get(4)), AccessoryType.valueOf(inputs.get(2)), inputs.get(7));
+        				adminInst.addProduct(newProduct);
+        			}
+        			else if (ProductCategory.valueOf(inputs.get(1)) == ProductCategory.BOARDGAME) {
+        				
+        				BoardGame newProduct = new BoardGame(Integer.valueOf(inputs.get(0)), ProductCategory.BOARDGAME, inputs.get(3), Double.valueOf(inputs.get(6)), Integer.valueOf(inputs.get(5)), Double.valueOf(inputs.get(4)), BoardGameType.valueOf(inputs.get(2)), Integer.valueOf(inputs.get(7)));
+        				adminInst.addProduct(newProduct);
+        			}
+        			
+        			else {
+        				System.out.println("Failed to add Product!");
+        				System.out.println("Ensure PRODUCT CATEGORY field is entered as either: BOARDGAME or ACCESSORY");
+        			}
+        			
         			System.out.println();
         			break;
         			
