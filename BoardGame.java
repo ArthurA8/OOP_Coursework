@@ -19,7 +19,7 @@ public class BoardGame extends Product {
 	}
 	
 	public String toString() {
-		String gameDetails = String.valueOf(this.getProductID()) + "; " + String.valueOf(ProductCategory.lwrcase(this.getProductCategory()) + "; " + String.valueOf(this.getType()) + "; " + this.getProductName() + "; " + String.valueOf(this.getPrice()) + "; " + String.valueOf(this.getQuantityInStock()) + "; " + String.valueOf(this.getPurchaseCost()) + "; " + String.valueOf(this.getMaxPlayers()));
+		String gameDetails = String.format("%d; %s; %s; %s; %.2f; %d; %.2f; %d", this.getProductID(), String.valueOf(ProductCategory.lwrcase(this.getProductCategory())), String.valueOf(BoardGameType.lwrcase(this.getType())), this.getProductName(), this.getPrice(), this.getQuantityInStock(), this.getPurchaseCost(), this.getMaxPlayers());
 		return gameDetails;	
 	}
 }
