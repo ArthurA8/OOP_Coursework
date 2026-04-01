@@ -2,7 +2,11 @@ import java.io.File;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.io.FileNotFoundException;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class Admin extends User {
@@ -28,18 +32,23 @@ public class Admin extends User {
 			}
 		}
 	
+	private void sortStock(String newProduct) {
+    	try {
+			List<String> stockList = Files.readAllLines(Paths.get("Stock.txt"));
+			stockList.add(newProduct);
+			Collections.sort(stockList, (lineA, lineB) -> Double.compare(Double.valueOf(lineB.split("; ")[4]), Double.valueOf(lineA.split("; ")[4])));
+			Files.write(Paths.get("Stock.txt"), stockList);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+	
 	public void addProduct(Product newProduct) {
 		String details = newProduct.toString();
 		String[] detailArray = newProduct.toString().split("; ");
-		try (BufferedWriter productWriter = new BufferedWriter(new FileWriter("Stock.txt", true))) {
-			productWriter.newLine();
-			productWriter.write(details);
-			System.out.printf("%s has been added to the stock!\n\n", detailArray[3]);
-		} catch (IOException e) {
-			System.err.println(e.getMessage());
-		}
+		sortStock(details);
+		System.out.printf("%s has been added to the stock!\n\n", detailArray[3]);
+
 	}
-	
-	
 
 }

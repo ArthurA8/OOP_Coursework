@@ -1,4 +1,9 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class AdminCLI {
@@ -44,10 +49,11 @@ public class AdminCLI {
         				inputs.set(1, "BOARDGAME");
         				inputParams[2] = "BOARDGAME TYPE:\n\nFor Strategy: Type 1\nFor Party: Type 2";
         				System.out.printf("%s\n", inputParams[2]);
-        				if (consoleInput.nextLine().equals(String.valueOf(1))) {
+        				String cliIn = consoleInput.nextLine();
+        				if (cliIn.equals(String.valueOf(1))) {
         					inputs.add("STRATEGY");
         				}
-        				else if (consoleInput.nextLine().equals(String.valueOf(2))) {
+        				else if (cliIn.equals(String.valueOf(2))) {
         					inputs.add("PARTY");
         				}
         				else {
@@ -58,13 +64,14 @@ public class AdminCLI {
         				inputs.set(1, "ACCESSORY");
         				inputParams[2] = "ACCESSORY TYPE:\n\nFor Dice: Type 1\nFor Miniature: Type 2\nFor Accessory Kit: Type 3";
         				System.out.printf("%s\n", inputParams[2]);
-        				if (consoleInput.nextLine().equals(String.valueOf(1))) {
+        				String cliIn = consoleInput.nextLine();
+        				if (cliIn.equals(String.valueOf(1))) {
         					inputs.add("DICE");
         				}
-        				else if (consoleInput.nextLine().equals(String.valueOf(2))) {
+        				else if (cliIn.equals(String.valueOf(2))) {
         					inputs.add("MINIATURE");
         				}
-        				else if (consoleInput.nextLine().equals(String.valueOf(3))) {
+        				else if (cliIn.equals(String.valueOf(3))) {
         					inputs.add("ACCESSORY KIT");
         				}
         				else {
@@ -119,7 +126,7 @@ public class AdminCLI {
         	}
         }
     }
-    
+
     
     private static void printAdminMenu() {
 
