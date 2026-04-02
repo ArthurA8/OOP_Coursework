@@ -68,6 +68,8 @@ public class Customer extends User {
 		File products = new File ("Stock.txt");
 		try {
 			Scanner scanner = new Scanner(products);
+			String table_format = "| %-6s | %-12s | %-10s | %-28s | %-7s | %-5s | %-20s |%n";
+			System.out.printf(table_format, "ID", "Category", "Type", "Name", "Price", "Stock", "Info");
 			while (scanner.hasNextLine()) {
 				String[] productFields = scanner.nextLine().split("; ");
 				if (productFields[1].equals("accessory")) {
