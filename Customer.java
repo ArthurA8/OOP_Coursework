@@ -65,7 +65,16 @@ public class Customer extends User {
 	}
 	
 	public static void compatabilitySearch(String filter) {
-		
+		File products = new File ("Stock.txt");
+		try {
+			Scanner scanner = new Scanner(products);
+			while (scanner.hasNextLine()) {
+				String[] productFields = scanner.nextLine().split("; ");
+				if (productFields[1].equals("accessory")) {
+					
+				}
+			}
+		}
 	}
 	
 }
