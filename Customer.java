@@ -27,10 +27,10 @@ public class Customer extends User {
 					}
 				}
 				System.out.printf(table_format, product.get(0), product.get(1), product.get(2), product.get(3), product.get(4), product.get(5), product.get(6));
-				
-			scanner.close();
 			
-			}
+			} 
+			scanner.close();
+			System.out.println("\n");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -65,6 +65,7 @@ public class Customer extends User {
 	}
 	
 	public static void compatabilitySearch(String filter) {
+		String lwrcaseFilter = filter.toLowerCase();
 		File products = new File ("Stock.txt");
 		try {
 			Scanner scanner = new Scanner(products);
@@ -73,10 +74,42 @@ public class Customer extends User {
 			while (scanner.hasNextLine()) {
 				String[] productFields = scanner.nextLine().split("; ");
 				if (productFields[1].equals("accessory")) {
+					if (productFields[7].equals("Universal")) {
+						System.out.printf(table_format, productFields[0], productFields[1], productFields[2], productFields[3], productFields[4], productFields[5], productFields[7]);
+					}
+					else if (productFields[7].toLowerCase().equals(lwrcaseFilter)) {
+						System.out.printf(table_format, productFields[0], productFields[1], productFields[2], productFields[3], productFields[4], productFields[5], productFields[7]);
+					}
 					
 				}
-			}
+			} scanner.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		}
+	}
+	
+	public void addToCart(Product product) {
+		this.customerCart.addItem(product);
+		System.out.printf("%s has been added to cart!\n", product.getProductName());
+		System.out.println("\n");
+	}
+	
+	public void removeFromCart(Product product) {
+		this.customerCart.removeItem(product);
+		System.out.printf("%s has been removed from cart!\n", product.getProductName());
+		System.out.println("\n");
+	}
+	
+	public void viewCart() {
+		this.customerCart.viewCart();
+	}
+	
+	public void cancelCart() {
+		ArrayList<Product> cartItems = this.customerCart.getItems();
+		for (int i = 0; i < cartItems.size(); i++) {
+			this.customerCart.removeItem(cartItems.get(i));
+		}
+		System.out.println("Your cart has been emptied!");
 	}
 	
 }

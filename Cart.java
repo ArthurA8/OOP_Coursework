@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Cart {
 	private double cartTotal;
@@ -33,6 +34,28 @@ public class Cart {
 			System.out.printf(cart_format, name, price);
 		}
 		System.out.printf("\nCart Total: %.2f\n", cartTotal);
+	}
+	
+	public void cancelCart() {
+		System.out.println("Are you sure you want to cancel cart?");
+		System.out.println("If YES: Type 1\nIf NO: Type 2");
+		Scanner scanner = new Scanner(System.in);
+		String usrInput = scanner.nextLine();
+		if (usrInput.equals(String.valueOf(1))) {
+			for (int i = 0; i < this.getItems().size(); i ++) {
+				this.removeItem(this.getItems().get(i));
+			}
+			System.out.println("Cart Cancelled!\n");
+			return;
+		}
+		else if (usrInput.equals(String.valueOf(2))) {
+			System.out.println("Cart Cancelation Cancelled!\n");
+			return;
+		}
+		else {
+			System.out.println("Invalid input!\n");
+			return;
+		}
 	}
 	
 }
