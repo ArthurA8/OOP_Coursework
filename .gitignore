@@ -12,3 +12,11 @@
 /Accessories.class
 /Customer.class
 /Cart.class
+/paymentMethod.class
+/Receipt.class
+/PayPalReceipt.class
+/CreditCardReceipt.class
+/PayPal.class
+/PaymentMethod.class
+/CreditCard.class
+/Address.class

@@ -30,9 +30,8 @@ public abstract class User {
 		return this.role;
 	}
 	
-	public String Address() {
-		String house = String.valueOf(houseNum);
-		String address = house + ", " + city + ", " + postcode;
+	public Address address() {
+		Address address = new Address(this.houseNum, this.postcode, this.city);
 		return address;
 	}
 	

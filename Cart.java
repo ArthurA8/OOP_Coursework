@@ -36,10 +36,9 @@ public class Cart {
 		System.out.printf("\nCart Total: %.2f\n", cartTotal);
 	}
 	
-	public void cancelCart() {
+	public void cancelCart(Scanner scanner) {
 		System.out.println("Are you sure you want to cancel cart?");
 		System.out.println("If YES: Type 1\nIf NO: Type 2");
-		Scanner scanner = new Scanner(System.in);
 		String usrInput = scanner.nextLine();
 		if (usrInput.equals(String.valueOf(1))) {
 			for (int i = 0; i < this.getItems().size(); i ++) {
@@ -56,6 +55,10 @@ public class Cart {
 			System.out.println("Invalid input!\n");
 			return;
 		}
+	}
+	
+	public double getCartTotal() {
+		return this.cartTotal;
 	}
 	
 }

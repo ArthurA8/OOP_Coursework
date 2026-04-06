@@ -104,12 +104,25 @@ public class Customer extends User {
 		this.customerCart.viewCart();
 	}
 	
-	public void cancelCart() {
-		ArrayList<Product> cartItems = this.customerCart.getItems();
-		for (int i = 0; i < cartItems.size(); i++) {
-			this.customerCart.removeItem(cartItems.get(i));
-		}
-		System.out.println("Your cart has been emptied!");
+	public void cancelCart(Scanner scanner) {
+		this.customerCart.cancelCart(scanner);
 	}
 	
+	public Cart getCart() {
+		return this.customerCart;
+	}
+	
+	
+	public Receipt completePurchase(PaymentMethod method) {
+		
+		if (method instanceof PayPal) {
+			Receipt receipt = method.processPayment(customerCart.getCartTotal(), this.address());
+			return receipt;
+		}
+		else {
+			Receipt receipt = method.processPayment(customerCart.getCartTotal(), this.address());
+			return receipt;
+		}
+		
+	}
 }
