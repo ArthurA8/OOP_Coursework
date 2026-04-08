@@ -73,11 +73,11 @@ public class Customer extends User {
 			System.out.printf(table_format, "ID", "Category", "Type", "Name", "Price", "Stock", "Info");
 			while (scanner.hasNextLine()) {
 				String[] productFields = scanner.nextLine().split("; ");
-				if (productFields[1].equals("accessory")) {
-					if (productFields[7].equals("Universal")) {
+				if (productFields[1].trim().equals("accessory")) {
+					if (productFields[7].trim().equals("Universal")) {
 						System.out.printf(table_format, productFields[0], productFields[1], productFields[2], productFields[3], productFields[4], productFields[5], productFields[7]);
 					}
-					else if (productFields[7].toLowerCase().equals(lwrcaseFilter)) {
+					else if (productFields[7].trim().toLowerCase().equals(lwrcaseFilter)) {
 						System.out.printf(table_format, productFields[0], productFields[1], productFields[2], productFields[3], productFields[4], productFields[5], productFields[7]);
 					}
 					
@@ -88,9 +88,9 @@ public class Customer extends User {
 		}
 	}
 	
-	public void addToCart(Product product) {
+	public void addToCart(String product) {
 		this.customerCart.addItem(product);
-		System.out.printf("%s has been added to cart!\n", product.getProductName());
+		System.out.printf("%s has been added to cart!\n", product);
 		System.out.println("\n");
 	}
 	

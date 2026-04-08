@@ -1,4 +1,8 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Cart {
@@ -10,9 +14,42 @@ public class Cart {
 		this.cartItems = cartItems;
 	}
 	
-	public void addItem(Product item) {
-		cartItems.add(item);
-		cartTotal += item.getPrice();
+	public void addItem(String name) {
+		
+		try {
+			List<String> stock = Files.readAllLines(Paths.get("Stock.txt"));
+			for (int i = 0; i < stock.size(); i++) {
+				
+				int productID = Integer.valueOf(stock.get(i).split("; ")[0].trim());
+				String productType = stock.get(i).split("; ")[1].trim();
+				String productName = stock.get(i).split("; ")[3].trim();
+				double productPrice = Double.valueOf(stock.get(i).split("; ")[4].trim());
+				int productStock = Integer.valueOf(stock.get(i).split("; ")[5].trim());
+				double productCost = Double.valueOf(stock.get(i).split("; ")[6].trim());
+				
+				if (productName.toLowerCase().equals(name.toLowerCase().trim())) {
+					
+					if (productType.equals("board game")) {
+						BoardGameType boardGameType = BoardGameType.valueOf(stock.get(i).split("; ")[2].trim().toUpperCase());
+						int numPlayers = Integer.valueOf(stock.get(i).split("; ")[7].trim());
+						BoardGame item = new BoardGame(productID, ProductCategory.BOARDGAME, productName, productCost, productStock, productPrice, boardGameType, numPlayers);
+						cartItems.add(item);
+						cartTotal += item.getPrice();
+					}
+					
+					else if (productType.equals("accessory")) {
+						AccessoryType accessoryType = AccessoryType.valueOf(stock.get(i).split("; ")[2].trim().toUpperCase());
+						String compatability = stock.get(i).split("; ")[7].trim();
+						Accessories item = new Accessories(productID, ProductCategory.ACCESSORY, productName, productCost, productStock, productPrice, accessoryType, compatability);
+						cartItems.add(item);
+						cartTotal += item.getPrice();
+					}
+					
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void removeItem(Product item) {

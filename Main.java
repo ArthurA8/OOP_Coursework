@@ -31,7 +31,6 @@ public class Main {
             		
             		if (login(1, consoleInput)) {
             			AdminCLI.run(consoleInput);
-            			return;
             		}
             		else {
             			System.out.println("Invalid Admin ID!");
@@ -43,7 +42,6 @@ public class Main {
             		
             		if (login(2, consoleInput)) {
             			CustomerCLI.run(consoleInput);
-            			return;
             		}
             		else {
             			System.out.println("Invalid User ID!");

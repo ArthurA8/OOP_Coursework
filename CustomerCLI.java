@@ -36,7 +36,8 @@ public class CustomerCLI {
         		System.out.println("\n");
         		System.out.println("ADD TO BASKET\n");
         		System.out.println("Please enter the name of the product to add:");
-        		System.out.println("Unimplemented");
+        		String productName = consoleInput.nextLine().trim();
+        		customerInst.addToCart(productName);
         		
         		
         	case 3:
