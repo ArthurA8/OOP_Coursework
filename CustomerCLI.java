@@ -38,6 +38,7 @@ public class CustomerCLI {
         		System.out.println("Please enter the name of the product to add:");
         		String productName = consoleInput.nextLine().trim();
         		customerInst.addToCart(productName);
+        		break;
         		
         		
         	case 3:
@@ -101,8 +102,8 @@ public class CustomerCLI {
 				}
         		
         		customerInst.getCart().getItems().clear();		
-        		customerInst.getCart().getCartTotal().
-        		
+        		customerInst.getCart().clearTotal();
+        		System.out.println("\n");
         		break;
         		
         	case 5:

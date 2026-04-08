@@ -57,7 +57,8 @@ public class Customer extends User {
 					return;
 				}
 			}
-			System.out.println("ID: %d does not match any product in stock!");
+			System.out.printf("ID: %d does not match any product in stock!", productID);
+			System.out.printf("\n");
 			scanner.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

@@ -29,7 +29,11 @@ public class Cart {
 				
 				if (productName.toLowerCase().equals(name.toLowerCase().trim())) {
 					
-					if (productType.equals("board game")) {
+					if (productStock == 0) {
+						System.out.printf("Sorry, %s is out of stock!\n", productName);
+					}
+					
+					else if (productType.equals("board game")) {
 						BoardGameType boardGameType = BoardGameType.valueOf(stock.get(i).split("; ")[2].trim().toUpperCase());
 						int numPlayers = Integer.valueOf(stock.get(i).split("; ")[7].trim());
 						BoardGame item = new BoardGame(productID, ProductCategory.BOARDGAME, productName, productCost, productStock, productPrice, boardGameType, numPlayers);
@@ -59,6 +63,10 @@ public class Cart {
 	
 	public ArrayList<Product> getItems() {
 		return this.cartItems;
+	}
+	
+	public void clearTotal() {
+		cartTotal = 0;
 	}
 	
 	public void viewCart() {
