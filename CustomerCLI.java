@@ -90,7 +90,6 @@ public class CustomerCLI {
         						int newStock = Integer.valueOf(parts[5]) - 1;
         						String update = parts[0] + "; " + parts[1] + "; " + parts[2] + "; " + parts[3] + "; " + parts[4] + "; " + String.valueOf(newStock) + "; " + parts[6] + "; " + parts[7];
         						stock.set(j, update);
-        						break;
         					}
         				}
         			} 
@@ -101,9 +100,8 @@ public class CustomerCLI {
 					e.printStackTrace();
 				}
         		
-        		for (int i = 0; i < customerInst.getCart().getItems().size(); i ++) {
-    				customerInst.getCart().removeItem(customerInst.getCart().getItems().get(i));
-    			}				
+        		customerInst.getCart().getItems().clear();		
+        		customerInst.getCart().getCartTotal().
         		
         		break;
         		

@@ -1,10 +1,10 @@
-1234; board game; strategy; Risk; 35.00; 20; 19.00; 6
+1234; board game; strategy; Risk; 35.00; 18; 19.00; 6
 8251; board game; party; Mystery Mansion; 32.00; 22; 18.00; 6
-1908; board game; party; Quick Draw Chaos; 25.00; 35; 12.00; 8
+1908; board game; party; Quick Draw Chaos; 25.00; 33; 12.00; 8
 4935; accessory; playmat; Tactical Grid Playmat; 22.00; 30; 10.00; Universal
 7412; accessory; playmat; Mystic Realm Playmat; 20.00; 40; 8.00; Universal 
-2039; accessory; miniature; Space Commander Figure; 18.00; 25; 7.00; Warhammer 40K 
-7125; accessory; miniature; Ancient Warrior Model; 15.00; 28; 6.00; Ancient Battles 
+2039; accessory; miniature; Space Commander Figure; 18.00; 24; 7.00; Warhammer 40K 
+7125; accessory; miniature; Ancient Warrior Model; 15.00; 27; 6.00; Ancient Battles 
 7381; accessory; dice; 7-piece Polyhedral Dice Set; 12.00; 50; 5.00; Dungeons & Dragons 
-4321; accessory; miniature; Space Marine; 12.00; 30; 6.00; WARHAMMER 40K
+4321; accessory; miniature; Space Marine; 12.00; 29; 6.00; WARHAMMER 40K
 2674; accessory; dice; Metal D20 Collector Die; 9.00; 60; 3.50; Universal

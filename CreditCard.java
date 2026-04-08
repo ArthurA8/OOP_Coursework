@@ -5,7 +5,7 @@ public class CreditCard implements PaymentMethod {
 	private String securityCode;
 	
 	public CreditCard(String CardNumber, String securityCode) {
-		setCardNumber(cardNumber);
+		setCardNumber(CardNumber);
 		setSecurityCode(securityCode);
 		
 	}
