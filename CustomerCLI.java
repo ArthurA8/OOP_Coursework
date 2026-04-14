@@ -10,7 +10,7 @@ import java.util.List;
 public class CustomerCLI {
 
     public static void run(Scanner consoleInput) {
-        System.out.println("CUSTOMER VIEW\n");
+        System.out.println("\nCUSTOMER VIEW\n");
         
         int id = Integer.parseInt(Main.usrDetails.get(0));
     	String name = Main.usrDetails.get(1);
@@ -27,13 +27,13 @@ public class CustomerCLI {
         	switch (selection) {
         	
         	case 1:
-        		System.out.println("\n");
+        		System.out.printf("\n");
         		System.out.println("PRODUCT LIST\n");
         		Customer.viewProducts();
         		break;
         		
         	case 2: 
-        		System.out.println("\n");
+        		System.out.printf("\n");
         		System.out.println("ADD TO BASKET\n");
         		System.out.println("Please enter the name of the product to add:");
         		String productName = consoleInput.nextLine().trim();
@@ -42,28 +42,32 @@ public class CustomerCLI {
         		
         		
         	case 3:
-        		System.out.println("\n");
+        		System.out.printf("\n");
         		System.out.println("SHOPPING BASKET\n");
         		customerInst.viewCart();
+        		System.out.printf("\n");
         		break;
         		
         	case 4: 
         		
-        		System.out.println("\n");
+        		System.out.printf("\n");
         		System.out.println("CHECKOUT\n");
         		System.out.println("For PayPal: Enter 1");
         		System.out.println("For CreditCard: Enter 2");
         		int usrInput = Integer.valueOf(consoleInput.nextLine().trim());
         		
         		if (usrInput == 1) {
+        			System.out.printf("\n");
         			System.out.println("Please Enter your Email Address");
         			String email = consoleInput.nextLine().trim();
         			PayPal payPalInst = new PayPal(email);
+        			System.out.printf("\n");
         			Receipt receipt = customerInst.completePurchase(payPalInst);
         			System.out.println(receipt.getReceipt());
         		}
         		
         		else {
+        			System.out.printf("\n");
         			System.out.println("Please Enter your 6-digit Card Number");
         			String cardNumber = consoleInput.nextLine().trim();
         			System.out.println("Please Enter your 3-digit Security Code");
@@ -108,14 +112,14 @@ public class CustomerCLI {
         		
         	case 5:
         		
-        		System.out.println("\n");
+        		System.out.printf("\n");
         		System.out.println("CANCEL BASKET");
         		customerInst.cancelCart(consoleInput);
         		break;
         		
         	case 6:
         		
-        		System.out.println("\n");
+        		System.out.printf("\n");
         		System.out.println("PRODUCT ID SEARCH");
         		System.out.println("Enter a product ID to search for");
         		int productID = Integer.valueOf(consoleInput.nextLine().trim());
@@ -125,7 +129,7 @@ public class CustomerCLI {
         		
         	case 7:
         		
-        		System.out.println("\n");
+        		System.out.printf("\n");
         		System.out.println("PRODUCT COMPATIBILITY SEARCH");
         		System.out.println("Enter accessory compatibility to search for");
         		String compatability = consoleInput.nextLine().trim();

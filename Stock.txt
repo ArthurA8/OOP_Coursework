@@ -1,4 +1,4 @@
-1234; board game; strategy; Risk; 35.00; 17; 19.00; 6
+1234; board game; strategy; Risk; 35.00; 16; 19.00; 6
 2345; board game; party; Monopoly; 35.00; 20; 20.00; 6
 8251; board game; party; Mystery Mansion; 32.00; 22; 18.00; 6
 1908; board game; party; Quick Draw Chaos; 25.00; 33; 12.00; 8

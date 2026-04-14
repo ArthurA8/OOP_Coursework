@@ -86,12 +86,11 @@ public class Cart {
 		System.out.println("If YES: Type 1\nIf NO: Type 2");
 		String usrInput = scanner.nextLine();
 		if (usrInput.equals(String.valueOf(1))) {
-			for (int i = 0; i < this.getItems().size(); i ++) {
-				this.removeItem(this.getItems().get(i));
-			}
+			cartItems.clear();
 			System.out.println("Cart Cancelled!\n");
 			return;
-		}
+			}
+		
 		else if (usrInput.equals(String.valueOf(2))) {
 			System.out.println("Cart Cancelation Cancelled!\n");
 			return;

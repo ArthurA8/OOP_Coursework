@@ -107,6 +107,7 @@ public class Customer extends User {
 	
 	public void cancelCart(Scanner scanner) {
 		this.customerCart.cancelCart(scanner);
+		this.customerCart.clearTotal();
 	}
 	
 	public Cart getCart() {
