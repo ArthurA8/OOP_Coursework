@@ -19,6 +19,8 @@ public class CustomerCLI {
     	String city = Main.usrDetails.get(4);
     	
     	Customer customerInst = new Customer(id, name, houseNum, pstCode, city, Role.CUSTOMER, new Cart(0, new ArrayList<Product>()));
+    	
+    	
         
         while (true)  {
         	printCustomerMenu();

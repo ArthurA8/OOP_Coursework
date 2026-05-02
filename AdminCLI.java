@@ -62,7 +62,7 @@ public class AdminCLI {
         			}
         			else if (inputs.get(1).equals(String.valueOf(2))) {
         				inputs.set(1, "ACCESSORY");
-        				inputParams[2] = "ACCESSORY TYPE:\n\nFor Dice: Type 1\nFor Miniature: Type 2\nFor Playmat: Type 3";
+        				inputParams[2] = "ACCESSORY TYPE:\n\nFor Dice: Type 1\nFor Miniature: Type 2\nFor Accessory Kit: Type 3";
         				System.out.printf("%s\n", inputParams[2]);
         				String cliIn = consoleInput.nextLine();
         				if (cliIn.equals(String.valueOf(1))) {
@@ -72,7 +72,7 @@ public class AdminCLI {
         					inputs.add("MINIATURE");
         				}
         				else if (cliIn.equals(String.valueOf(3))) {
-        					inputs.add("PLAYMAT");
+        					inputs.add("ACCESSORY_KIT");
         				}
         				else {
         					System.out.println("Invalid Input!\n Retry with either input 1, 2 or 3");

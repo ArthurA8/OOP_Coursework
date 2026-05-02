@@ -90,6 +90,7 @@ public class Customer extends User {
 	}
 	
 	public void addToCart(String product) {
+		
 		this.customerCart.addItem(product);
 		System.out.printf("%s has been added to cart!\n", product);
 		System.out.println("\n");
