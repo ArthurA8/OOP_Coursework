@@ -90,7 +90,21 @@ public class Customer extends User {
 	}
 	
 	public void addToCart(String product) {
-		
+		try {
+			File products = new File ("Stock.txt");
+			Scanner scanner = new Scanner(products);
+			ArrayList<String> items = new ArrayList<String>();
+			while (scanner.hasNextLine()) {
+				items.add(scanner.nextLine().split("; ")[3].toLowerCase());
+			}
+			scanner.close();
+			if (!items.contains(product.toLowerCase())) {
+				System.out.println(String.format("%s is not an avaliable product!\n", product));
+				return;
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 		this.customerCart.addItem(product);
 		System.out.printf("%s has been added to cart!\n", product);
 		System.out.println("\n");
