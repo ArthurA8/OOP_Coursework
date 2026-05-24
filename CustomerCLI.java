@@ -62,6 +62,10 @@ public class CustomerCLI {
         			System.out.printf("\n");
         			System.out.println("Please Enter your Email Address");
         			String email = consoleInput.nextLine().trim();
+        			if (!email.contains("@")) {
+        				System.out.println("Invalid Email address!\n");
+        				break;
+        			}
         			PayPal payPalInst = new PayPal(email);
         			System.out.printf("\n");
         			Receipt receipt = customerInst.completePurchase(payPalInst);
