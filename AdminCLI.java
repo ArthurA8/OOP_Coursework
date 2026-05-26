@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AdminCLI {
-	public final static String NOT_IMPLEMENTED = "Not implemented";
+
 	public final static String INVALID = "Invalid input";
 
     public static void run(Scanner consoleInput) {

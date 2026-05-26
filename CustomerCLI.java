@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerCLI {
+	
+	public final static String INVALID = "Invalid input";
 
     public static void run(Scanner consoleInput) {
         System.out.println("\nCUSTOMER VIEW\n");
@@ -139,7 +141,11 @@ public class CustomerCLI {
         		
         	case 0: 
         		return;
-        		
+        	
+        	default:
+    			System.out.println(INVALID);
+    			System.out.println();
+    		
         	}
         	
         }
