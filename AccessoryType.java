@@ -2,7 +2,7 @@
 public enum AccessoryType {
 DICE,
 MINIATURE,
-PLAYMAT;
+ACCESSORY_KIT;
 	
 	public static String lwrcase(AccessoryType type) {
 		if (type == DICE) {
@@ -14,7 +14,7 @@ PLAYMAT;
 			return lwrcase;
 		}
 		else {
-			String lwrcase = "playmat";
+			String lwrcase = "accessory kit";
 			return lwrcase;
 		}
 	}

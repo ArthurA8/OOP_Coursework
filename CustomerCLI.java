@@ -21,6 +21,8 @@ public class CustomerCLI {
     	String city = Main.usrDetails.get(4);
     	
     	Customer customerInst = new Customer(id, name, houseNum, pstCode, city, Role.CUSTOMER, new Cart(0, new ArrayList<Product>()));
+    	
+    	
         
         while (true)  {
         	printCustomerMenu();
@@ -62,6 +64,10 @@ public class CustomerCLI {
         			System.out.printf("\n");
         			System.out.println("Please Enter your Email Address");
         			String email = consoleInput.nextLine().trim();
+        			if (!email.contains("@")) {
+        				System.out.println("Invalid Email address!\n");
+        				break;
+        			}
         			PayPal payPalInst = new PayPal(email);
         			System.out.printf("\n");
         			Receipt receipt = customerInst.completePurchase(payPalInst);

@@ -71,63 +71,84 @@ public class Main {
     private static boolean login(int type, Scanner scanner) {
     	
     	File userAccounts = new File("UserAccounts.txt");
+    	String login = "%s: %d";
     	
     	try {
-    		
-			Scanner accountReader = new Scanner(userAccounts);
 			
 			switch (type) {
 	    	
-	    	case 1: 
-	    		System.out.println("ADMIN LOGIN");
-	    		System.out.println("Enter 3-digit User ID: ");
+	    	case 1: {
 	    		
-	    		while (scanner.hasNextLine()) {
+	    		System.out.println("ADMIN LOGIN");
+	    		Scanner adminAccountReader = new Scanner(userAccounts);
+	    		while (adminAccountReader.hasNextLine()) {
+	    			String[] userDetails = adminAccountReader.nextLine().split("; ");
 	    			
+	    			if (userDetails[5].trim().equals("admin")) {
+	    				System.out.println(String.format(login, userDetails[1], Integer.parseInt(userDetails[0])));
+	    			}
+	    		}
+	    		
+	    		adminAccountReader.close();
+	    		System.out.println("Enter 3-digit User ID: ");
+	    				
+	    		
+	    		if (scanner.hasNextLine()) {
 	    			String input = scanner.nextLine().trim();
 	    		
-	    			while (accountReader.hasNextLine()) {
-		    			String[] userDetails = accountReader.nextLine().split("; ");
+	    			Scanner searchAdminReader = new Scanner(userAccounts);
+	    			while (searchAdminReader.hasNextLine()) {
+		    			String[] userDetails = searchAdminReader.nextLine().split("; ");
+		    			
 		    			if (Integer.parseInt(userDetails[0]) == Integer.parseInt(input) && userDetails[5].trim().equals("admin")) {
-		    				
 		    				for (int i=0; i<userDetails.length; i++) {
 		    					usrDetails.add(userDetails[i]);
 		    				}
-		    				accountReader.close();
+		    				searchAdminReader.close();
 		    				return true;
 		    			}
 		    		}
-	    			accountReader.close();
-	    			return false;	
+	    			searchAdminReader.close();
+	    		}
+	    		return false;
+	    	}
+	    		
+	    	case 2: {
+	    		System.out.println("CUSTOMER LOGIN");
+	    		
+	    		Scanner userAccountReader = new Scanner(userAccounts);
+	    		while (userAccountReader.hasNextLine()) {
+    				String[] userDetails = userAccountReader.nextLine().split("; ");
+    				if (userDetails[5].trim().equals("customer")) {
+	    				System.out.println(String.format(login, userDetails[1], Integer.parseInt(userDetails[0])));
+	    			}
 	    		}
 	    		
-	    	case 2:
-	    		System.out.println("CUSTOMER LOGIN");
+	    		userAccountReader.close();
+	    		
 	    		System.out.println("Enter 3-digit User ID: ");
 	    		
-	    		while (scanner.hasNextLine()) {
-	    			
+	    		if (scanner.hasNextLine()) {
 	    			String input = scanner.nextLine().trim();
 	    			
-	    			while (accountReader.hasNextLine()) {
-	    				String[] userDetails = accountReader.nextLine().split("; ");
+	    			Scanner searchCustomerReader = new Scanner(userAccounts);
+	    			while (searchCustomerReader.hasNextLine()) {
+	    				String[] userDetails = searchCustomerReader.nextLine().split("; ");
+	    				
 	    				if (Integer.parseInt(userDetails[0]) == Integer.parseInt(input) && userDetails[5].trim().equals("customer")) {
-	    					
 	    					for (int i=0; i<userDetails.length; i++) {
 		    					usrDetails.add(userDetails[i]);
 		    				}
-	    					accountReader.close();
+	    					searchCustomerReader.close();
 	    					return true;
 	    				}
 	    			}
-	    			accountReader.close();
-	    			return false;
+	    			searchCustomerReader.close();
 	    		}
-	    		
+	    		return false;
 	    	}
 	    	
-			accountReader.close();
-	    	return false;
+		}
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

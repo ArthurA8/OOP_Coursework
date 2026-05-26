@@ -40,10 +40,23 @@ public class AdminCLI {
         			String[] inputParams = {"PRODUCT ID: ", "PRODUCT CATEGORY:\n\nFor Boardgame: Type 1\nFor Accessory: Type 2", "PRODUCT TYPE: ", "PRODUCT NAME: ", "PRODUCT PRICE: ", "PRODUCT STOCK: ", "PRODUCT COST: ", "ADDITIONAL PRODUCT INFO: "};
         			ArrayList<String> inputs = new ArrayList<>();
         			
-        			for (int i=0;i<2;i++) {
-        				System.out.printf("%s\n", inputParams[i]);
-        				inputs.add(consoleInput.nextLine());
+        			System.out.printf("%s\n", inputParams[0]);
+        			inputs.add(consoleInput.nextLine());
+        			
+        			try {
+        				int inputID = Integer.parseInt(inputs.get(0));
+        			} catch (NumberFormatException e) {
+        				System.out.println("Product ID must be an integer!");
+        				break;
         			}
+        			
+        			if (inputs.get(0).length() != 4) {
+        				System.out.println("Product ID must be 4 digits long!\n");
+        				break;
+        			}
+        			
+        			System.out.printf("%s\n", inputParams[1]);
+        			inputs.add(consoleInput.nextLine());
         			
         			if (inputs.get(1).equals(String.valueOf(1))) {
         				inputs.set(1, "BOARDGAME");
@@ -57,7 +70,8 @@ public class AdminCLI {
         					inputs.add("PARTY");
         				}
         				else {
-        					System.out.println("Invalid Input!\n Retry with either input 1 or 2");
+        					System.out.println("Invalid Input!\nRetry with either input 1 or 2\n");
+        					break;
         				}
         			}
         			else if (inputs.get(1).equals(String.valueOf(2))) {
@@ -72,14 +86,16 @@ public class AdminCLI {
         					inputs.add("MINIATURE");
         				}
         				else if (cliIn.equals(String.valueOf(3))) {
-        					inputs.add("ACCESSORY KIT");
+        					inputs.add("ACCESSORY_KIT");
         				}
         				else {
-        					System.out.println("Invalid Input!\n Retry with either input 1, 2 or 3");
+        					System.out.println("Invalid Input!\nRetry with either input 1, 2 or 3\n");
+        					break;
         				}
         			}
         			else {
-        				System.out.println("Invalid Input!\n Retry with either input 1 or 2");
+        				System.out.println("Invalid Input!\nRetry with either input 1 or 2\n");
+        				break;
         			}
         			
         			for (int i=3;i<7;i++) {
@@ -111,7 +127,7 @@ public class AdminCLI {
         			}
         			
         			else {
-        				System.out.println("Failed to add Product!");
+        				System.out.println("Failed to add Product!\n");
         			}
         			
         			System.out.println();
